@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Load External Document</title>
+</head>
+
+<body>
+  <script>
+    const url = 'http://127.0.0.1:5501/Frontend/panel/source.html';
+
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        document.open();
+        document.write(data);
+        document.close();
+      })
+      .catch(error => {
+        console.error('Error loading external page:', error);
+        document.getElementById('content').innerHTML = 'Failed to load content.';
+      });
+  </script>
+</body>
+
+</html>
